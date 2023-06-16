@@ -4,4 +4,3 @@ dist
 src/local-cache.json
 src/response.json
 src/generated.ts
-graphql.config.ts
