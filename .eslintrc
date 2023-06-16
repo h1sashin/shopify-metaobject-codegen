@@ -1,0 +1,53 @@
+{
+    "extends": [
+        "eslint:recommended",
+        "plugin:prettier/recommended",
+        "plugin:@typescript-eslint/recommended"
+    ],
+    "env": {
+        "browser": true,
+        "commonjs": true,
+        "node": true,
+        "es6": true
+    },
+    "parser": "@typescript-eslint/parser",
+    "parserOptions": {
+        "ecmaVersion": 2020,
+        "sourceType": "module",
+        "ecmaFeatures": {
+            "jsx": true
+        }
+    },
+    "plugins": ["@typescript-eslint"],
+    "rules": {
+        "prettier/prettier": "off",
+        "no-console": "off",
+        "strict": ["error", "global"],
+        "curly": "off",
+        "react/prop-types": "off",
+        "react/react-in-jsx-scope": "off",
+        "@typescript-eslint/no-empty-interface": "off",
+        "no-unused-vars": "off",
+        "@typescript-eslint/ban-types": "off",
+        "@typescript-eslint/no-unused-vars": [
+            "error",
+            { "argsIgnorePattern": "^_", "varsIgnorePattern": "h" }
+        ]
+    },
+    "ignorePatterns": ["node_modules/", "dist/"],
+    "settings": {
+        "import/resolver": {
+            "node": {
+                "paths": ["."],
+                "extensions": [".js", ".jsx", ".ts", ".tsx", ".css"]
+            }
+        },
+        "react": {
+            "createClass": "createReactClass",
+            "pragma": "React",
+            "fragment": "Fragment",
+            "version": "detect",
+            "flowVersion": "0.53"
+        }
+    }
+}

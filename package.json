@@ -1,0 +1,31 @@
+{
+  "name": "metaobject-parser",
+  "version": "0.1.0",
+  "description": "",
+  "main": "dist/generate-definitions.js",
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "codegen": "graphql-codegen --config graphql.config.ts --watch",
+    "generate-definitions": "ts-node generate-definitions.ts"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^16.1.4",
+    "graphql-request": "^6.1.0",
+    "typescript-transform-paths": "^3.4.6"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^4.0.1",
+    "@graphql-codegen/typescript": "^4.0.0",
+    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
+    "@graphql-codegen/typescript-operations": "^4.0.0",
+    "@types/node": "^20.3.1",
+    "eslint": "^8.42.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "ts-node": "^10.9.1",
+    "typescript": "^5.1.3"
+  }
+}

@@ -1,0 +1,88 @@
+fragment Reference on MetafieldReference {
+  __typename
+  ... on Product {
+    id
+    handle
+  }
+  ... on Collection {
+    id
+    handle
+  }
+  ... on ProductVariant {
+    id
+  }
+  ... on GenericFile {
+    id
+    url
+  }
+  ... on MediaImage {
+    id
+    image {
+      url
+    }
+  }
+  ... on Video {
+    id
+    originalSource {
+      url
+    }
+  }
+  ... on Metaobject {
+    id
+  }
+}
+
+query GetDefinitions {
+  metaobjectDefinitions(first: 20) {
+    nodes {
+      id
+      type
+      name
+      fieldDefinitions {
+        description
+        name
+        required
+        type {
+          name
+        }
+        validations {
+          name
+          type
+          value
+        }
+      }
+    }
+  }
+}
+
+query GetMetaobjectHandles($type: String!, $after: String) {
+  metaobjects(type: $type, first: 50, after: $after) {
+    pageInfo {
+      endCursor
+      hasNextPage
+    }
+    nodes {
+      handle
+    }
+  }
+}
+
+query GetMetaobject($handle: MetaobjectHandleInput!) {
+  metaobjectByHandle(handle: $handle) {
+    id
+    type
+    handle
+    fields {
+      type
+      value
+      reference {
+        ...Reference
+      }
+      references(first: 50) {
+        nodes {
+          ...Reference
+        }
+      }
+    }
+  }
+}
