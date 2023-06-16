@@ -3,9 +3,9 @@ import path from 'path';
 
 export const fn = async () => {
   const initialConfig = `
-  import { CeneratorConfig } from '@shopify-metaobject-codegen/core';
+  import type { GeneratorConfig } from '@shopify-metaobject-codegen/config';
 
-  const initialConfig: CeneratorConfig = {
+  const initialConfig: GeneratorConfig = {
     SHOP_NAME: '',
     API_VERSION: '2023-04',
     ADMIN_API_KEY: ''

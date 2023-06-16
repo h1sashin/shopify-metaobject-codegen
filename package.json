@@ -4,8 +4,7 @@
   "description": "",
   "scripts": {
     "build": "npm run build -ws --if-present",
-    "codegen": "npm run codegen -w @shopify-metaobject-codegen/graphql",
-    "generate-definitions": "npx smc generate-definitions"
+    "codegen": "npm run codegen -w @shopify-metaobject-codegen/graphql"
   },
   "author": "",
   "license": "ISC",

@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 import yargs from 'yargs/yargs';
 import { hideBin } from 'yargs/helpers';
 import * as GenerateDefinitions from './commands/generate-definitions';

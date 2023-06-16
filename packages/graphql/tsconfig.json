@@ -9,6 +9,6 @@
     "esModuleInterop": true,
     "strict": true,
     "rootDir": "src",
-    "declaration": false
+    "declaration": true
   }
 }
