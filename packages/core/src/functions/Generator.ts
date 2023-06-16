@@ -1,6 +1,6 @@
 import { MetaObjectField } from '@shopify-metaobject-codegen/types';
 import { defaultTypes, fieldTypes } from '../data/constants';
-import { GetDefinitionsQuery } from '@shopify-metaobject-codegen/graphql/dist/types/shopify';
+import { GetDefinitionsQuery } from '@shopify-metaobject-codegen/graphql';
 
 type FieldType = MetaObjectField | `list.${MetaObjectField}`;
 
@@ -18,7 +18,6 @@ export class Generator {
   }
 
   private parseName(name: string, mode: 'key' | 'value' = 'value'): string {
-    console.log(name);
     const unified = name.replaceAll(/[^a-zA-Z0-9_\s]/g, '').replaceAll(/[\s|_]+/g, '_');
     if (mode === 'key') {
       return unified

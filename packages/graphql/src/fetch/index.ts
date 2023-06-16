@@ -1,8 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
 import { getSdk } from '../types';
-import { initEnvironment } from '@shopify-metaobject-codegen/core';
+import { getConfig } from '@shopify-metaobject-codegen/config';
 
-initEnvironment();
+const { ADMIN_API_KEY, API_VERSION, SHOP_NAME } = getConfig();
 
 const withBackoff = (reqInfo: RequestInfo | URL, reqInit: RequestInit | undefined) => {
   const retry = async (delay: number) => {
@@ -21,15 +21,12 @@ const withBackoff = (reqInfo: RequestInfo | URL, reqInit: RequestInit | undefine
 };
 
 const generateSdk = () => {
-  const client = new GraphQLClient(
-    `https://${process.env.SHOPIFY_SHOP_NAME}.myshopify.com/admin/api/${process.env.SHOPIFY_API_VERSION}/graphql.json`,
-    {
-      headers: {
-        'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_TOKEN || '',
-      },
-      fetch: withBackoff,
+  const client = new GraphQLClient(`https://${SHOP_NAME || ''}/admin/api/${API_VERSION || ''}/graphql.json`, {
+    headers: {
+      'X-Shopify-Access-Token': ADMIN_API_KEY || '',
     },
-  );
+    fetch: withBackoff,
+  });
 
   return getSdk(client);
 };

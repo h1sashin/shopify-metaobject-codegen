@@ -1,8 +1,13 @@
 import yargs from 'yargs/yargs';
+import { hideBin } from 'yargs/helpers';
 import * as GenerateDefinitions from './commands/generate-definitions';
+import * as InitConfig from './commands/init-config';
 
-yargs(process.argv.slice(2))
-  .command(GenerateDefinitions.cmd, 'Generate metaobject definitions to file', () => GenerateDefinitions.fn)
+yargs(hideBin(process.argv))
+  .command('generate', 'Generate metaobject definitions to file', GenerateDefinitions.fn)
+  .command('config', 'Generate metaobject definitions to file', (yargs) => {
+    yargs.command('init', 'Generate metaobject definitions to file', InitConfig.fn);
+  })
   .help()
   .showHelpOnFail(true)
   .version()

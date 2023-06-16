@@ -7,7 +7,8 @@
     "build": "tsc --p tsconfig.json"
   },
   "dependencies": {
-    "@shopify-metaobject-codegen/types": "*"
+    "@shopify-metaobject-codegen/types": "^1.0.0",
+    "@shopify-metaobject-codegen/graphql": "^1.0.0"
   },
   "keywords": [],
   "author": "",

@@ -6,10 +6,8 @@
   },
   "compilerOptions": {
     "outDir": "dist",
-    "target": "ES2017",
-    "lib": ["es2021"],
-    "module": "ESNext",
-    "moduleResolution": "node",
+    "target": "ESNext",
+    "module": "CommonJS",
     "esModuleInterop": true,
     "strict": true,
     "rootDir": "src",

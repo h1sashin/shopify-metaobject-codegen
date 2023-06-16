@@ -1,18 +1,14 @@
-import { cosmiconfig } from 'cosmiconfig';
-import { Config } from './config';
 import { parser } from './parser';
-import { GeneratorConfig } from './types';
+import { RequiredGeneratorConfig } from './types';
+import { cosmiconfigSync } from 'cosmiconfig';
 
-const explorer = cosmiconfig('generator');
-
-const getConfig = async () => {
+export const getConfig = () => {
   try {
-    const cfg = await explorer.search();
-    if (!cfg || cfg.isEmpty) throw new Error('Config not found');
-    return cfg.config;
-  } catch {
-    console.error('Config not found, please run `generator init` to create config template');
+    cosmiconfigSync('generator', {});
+    const result = cosmiconfigSync('generator', { searchPlaces: [`.generatorrc`] }).search();
+    if (!result?.filepath) throw new Error('Config file not found, isEmpty');
+    return parser(result.config) as RequiredGeneratorConfig;
+  } catch (e) {
+    throw e;
   }
 };
-
-export const config = await getConfig().then<GeneratorConfig>((cfg) => new Config(parser(cfg)).generatorConfig);

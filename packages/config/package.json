@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "cosmiconfig": "^8.2.0"
+    "cosmiconfig": "^8.2.0",
+    "lilconfig": "^2.1.0"
   }
 }
