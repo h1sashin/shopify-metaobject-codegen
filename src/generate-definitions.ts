@@ -11,7 +11,7 @@ const getDefinitions = async () => {
   } = await sdk.GetDefinitions();
   const generator = new Generator(nodes);
   const parsed = generator.parse();
-  fs.writeFileSync('./generated.ts', parsed);
+  fs.writeFileSync('./src/generated.ts', parsed);
 };
 
 getDefinitions();

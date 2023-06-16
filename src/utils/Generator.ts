@@ -18,6 +18,7 @@ export class Generator {
   }
 
   private parseName(name: string, mode: 'key' | 'value' = 'value'): string {
+    console.log(name);
     const unified = name.replaceAll(/[^a-zA-Z0-9_\s]/g, '').replaceAll(/[\s|_]+/g, '_');
     if (mode === 'key') {
       return unified
@@ -53,9 +54,9 @@ export class Generator {
 
   private parseMetaobjectField(field: Field): string {
     const name = this.parseName(field.name);
-    const required = field.required ? '' : '?';
+    const required = field.required ? '' : ' | undefined';
     const type = this.getType(field.type.name as FieldType, field.validations);
-    return `\t${name}${required}: ${type};`;
+    return `\t${name}: ${type}${required};`;
   }
 
   private parseMetaobject(metaobject: Response[number]): string {
@@ -66,7 +67,7 @@ export class Generator {
 
   private getMetaobjectsList(): string {
     return `export interface Metaobjects {\n${this.response
-      .map(({ type }) => `\t${this.parseName(type)}: ${this.parseName(type, 'key')};`)
+      .map(({ type }) => `\t${this.parseName(type)}: ${this.parseName(type, 'key')} | null;`)
       .join('\n')}\n}`;
   }
 

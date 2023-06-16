@@ -1,7 +1,8 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
-import path from 'path';
 import * as dotenv from 'dotenv';
-dotenv.config({ path: path.resolve(__dirname, '.env') });
+import * as path from 'path';
+
+dotenv.config({ path: path.resolve(process.cwd(), '.env') });
 
 const config: CodegenConfig = {
   overwrite: true,
@@ -16,7 +17,7 @@ const config: CodegenConfig = {
     },
   ],
   debug: true,
-  documents: ['src/graphql/requests.graphql'],
+  documents: ['src/requests.graphql'],
   generates: {
     'src/types/shopify.ts': {
       plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request'],

@@ -3,23 +3,28 @@
   "version": "0.1.0",
   "description": "",
   "main": "dist/generate-definitions.js",
+  "bin": {
+    "bddx": "dist/generate-definitions.js"
+  },
   "scripts": {
-    "build": "tsc -p tsconfig.json",
-    "codegen": "graphql-codegen --config graphql.config.ts --watch",
-    "generate-definitions": "ts-node generate-definitions.ts"
+    "build": "npm run build -ws --if-present",
+    "codegen": "npm run codegen -w @shopify-metaobject-codegen/graphql",
+    "generate-definitions": "ts-node ./src/generate-definitions.ts"
   },
   "author": "",
   "license": "ISC",
+  "workspaces": [
+    "packages/graphql",
+    "packages/types",
+    "packages/core",
+    "packages/cli",
+    "packages/bento"
+  ],
   "dependencies": {
-    "dotenv": "^16.1.4",
-    "graphql-request": "^6.1.0",
-    "typescript-transform-paths": "^3.4.6"
+    "@shopify-metaobject-codegen/types": "^1.0.0",
+    "dotenv": "^16.1.4"
   },
   "devDependencies": {
-    "@graphql-codegen/cli": "^4.0.1",
-    "@graphql-codegen/typescript": "^4.0.0",
-    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
-    "@graphql-codegen/typescript-operations": "^4.0.0",
     "@types/node": "^20.3.1",
     "eslint": "^8.42.0",
     "eslint-config-prettier": "^8.8.0",
