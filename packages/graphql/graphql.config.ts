@@ -1,25 +1,22 @@
 import type { CodegenConfig } from '@graphql-codegen/cli';
-import * as dotenv from 'dotenv';
-import * as path from 'path';
+import { config } from '@shopify-metaobject-codegen/config';
+const { SHOP_NAME, API_VERSION, ADMIN_API_KEY } = config;
 
-dotenv.config({ path: path.resolve(process.cwd(), '.env') });
-
-const config: CodegenConfig = {
+const graphqlConfig: CodegenConfig = {
   overwrite: true,
   schema: [
     {
-      [`https://${process.env.SHOPIFY_SHOP_NAME}.myshopify.com/admin/api/${process.env.SHOPIFY_API_VERSION}/graphql.json`]:
-        {
-          headers: {
-            'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_TOKEN || '',
-          },
+      [`https://${SHOP_NAME}.myshopify.com/admin/api/${API_VERSION}/graphql.json`]: {
+        headers: {
+          'X-Shopify-Access-Token': ADMIN_API_KEY,
         },
+      },
     },
   ],
   debug: true,
   documents: ['src/requests.graphql'],
   generates: {
-    'src/types/shopify.ts': {
+    'src/types/index.ts': {
       plugins: ['typescript', 'typescript-operations', 'typescript-graphql-request'],
       config: {
         maybeValue: 'T | undefined',
@@ -37,4 +34,4 @@ const config: CodegenConfig = {
   },
 };
 
-export default config;
+export default graphqlConfig;

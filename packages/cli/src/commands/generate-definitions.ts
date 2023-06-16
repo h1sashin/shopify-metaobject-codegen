@@ -1,17 +1,14 @@
-import * as dotenv from 'dotenv';
-import sdk from './graphql';
+import { sdk } from '@shopify-metaobject-codegen/graphql';
+import { Generator } from '@shopify-metaobject-codegen/core';
 import * as fs from 'fs';
-import { Generator } from './utils/Generator';
 
-dotenv.config({ path: '../.env' });
-
-const getDefinitions = async () => {
+export const cmd = 'generate-definitions';
+export const fn = async () => {
   const {
     metaobjectDefinitions: { nodes },
   } = await sdk.GetDefinitions();
   const generator = new Generator(nodes);
   const parsed = generator.parse();
   fs.writeFileSync('./src/generated.ts', parsed);
+  return 'Definitions generated!';
 };
-
-getDefinitions();

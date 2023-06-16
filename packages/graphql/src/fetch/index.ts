@@ -1,9 +1,8 @@
 import { GraphQLClient } from 'graphql-request';
-import { getSdk } from '../types/shopify';
-import * as dotenv from 'dotenv';
-import path from 'path';
+import { getSdk } from '../types';
+import { initEnvironment } from '@shopify-metaobject-codegen/core';
 
-dotenv.config({ path: path.resolve(process.cwd(), '.env') });
+initEnvironment();
 
 const withBackoff = (reqInfo: RequestInfo | URL, reqInit: RequestInit | undefined) => {
   const retry = async (delay: number) => {
@@ -28,7 +27,7 @@ const generateSdk = () => {
       headers: {
         'X-Shopify-Access-Token': process.env.SHOPIFY_ADMIN_API_TOKEN || '',
       },
-      // fetch: withBackoff,
+      fetch: withBackoff,
     },
   );
 
@@ -37,4 +36,4 @@ const generateSdk = () => {
 
 const sdk = generateSdk();
 
-export default sdk;
+export { sdk };

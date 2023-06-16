@@ -9,6 +9,7 @@
     "codegen:watch": "graphql-codegen --config graphql.config.ts --watch"
   },
   "dependencies": {
+    "@shopify-metaobject-codegen/core": "*",
     "graphql-request": "^6.1.0"
   },
   "devDependencies": {

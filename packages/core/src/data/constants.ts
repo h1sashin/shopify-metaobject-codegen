@@ -1,4 +1,4 @@
-import type { FieldTypes } from '@shopify-metaobject-codegen/types';
+import { FieldTypes } from '@shopify-metaobject-codegen/types';
 
 export const fieldTypes: FieldTypes = {
   boolean: 'boolean',

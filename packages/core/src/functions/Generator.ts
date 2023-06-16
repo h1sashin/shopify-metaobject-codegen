@@ -1,6 +1,6 @@
+import { MetaObjectField } from '@shopify-metaobject-codegen/types';
 import { defaultTypes, fieldTypes } from '../data/constants';
-import { MetaObjectField } from '../types/metafields';
-import { GetDefinitionsQuery } from '../types/shopify';
+import { GetDefinitionsQuery } from '@shopify-metaobject-codegen/graphql/dist/types/shopify';
 
 type FieldType = MetaObjectField | `list.${MetaObjectField}`;
 

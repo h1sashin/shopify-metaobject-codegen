@@ -1,21 +1,14 @@
 {
-  "name": "@shopify-metaobject-codegen/cli",
+  "name": "@shopify-metaobject-codegen/config",
   "version": "1.0.0",
   "description": "",
   "main": "dist/index.js",
-  "bin": {
-    "smc": "dist/index.js"
-  },
   "scripts": {
     "build": "tsc --p tsconfig.json"
   },
-  "keywords": [],
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "yargs": "^17.7.2"
-  },
-  "devDependencies": {
-    "@types/yargs": "^17.0.24"
+    "cosmiconfig": "^8.2.0"
   }
 }
