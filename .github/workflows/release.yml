@@ -14,7 +14,7 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: npm install
       - run: npm run build -ws --if-present
-      - run: npm publish -w config --access public --tag latest
+      - run: npm publish -w packages/config --access public --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
       - run: npm publish -w packages/graphql --access public --tag latest
