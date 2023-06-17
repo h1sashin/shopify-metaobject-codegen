@@ -1,18 +1,24 @@
-import { Generator, getDefinitions } from '@shopify-metaobject-codegen/core';
+import { Generator, log } from '@shopify-metaobject-codegen/core';
 import { getConfig } from '@shopify-metaobject-codegen/config';
+import { generateSdk } from '@shopify-metaobject-codegen/graphql';
 import * as fs from 'fs';
 import path from 'path';
-const { file } = getConfig();
 
 export const fn = async () => {
   try {
-    console.log('Generating definitions...');
-    const definitions = await getDefinitions();
-    const generator = new Generator(definitions);
+    const sdk = await generateSdk();
+    const { file } = getConfig();
+    log('info', 'Getting definitions');
+    const {
+      metaobjectDefinitions: { nodes },
+    } = await sdk.GetDefinitions();
+    log('info', 'Generating definitions');
+    const generator = new Generator(nodes);
     const parsed = generator.parse();
     fs.writeFileSync(path.resolve(process.cwd(), file), parsed);
+    log('success', 'Definitions generated');
   } catch (e) {
-    if (e instanceof Error) console.error(e.message);
-    else console.error('Something went wrong!');
+    if (e instanceof Error) log('error', e.message);
+    else log('error', 'Something went wrong');
   }
 };

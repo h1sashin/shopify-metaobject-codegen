@@ -1,7 +1,9 @@
+import { log } from '@shopify-metaobject-codegen/core';
 import * as fs from 'fs';
 import path from 'path';
 
 export const fn = async () => {
+  log('info', 'Generating config file');
   const initialConfig = `
   import type { GeneratorConfig } from '@shopify-metaobject-codegen/config';
 
@@ -15,4 +17,6 @@ export const fn = async () => {
   `;
 
   fs.writeFileSync(path.resolve(process.cwd(), 'generator.config.ts'), initialConfig);
+  log('success', 'Config file generated');
+  log('warning', 'Do not forget to fill it!');
 };

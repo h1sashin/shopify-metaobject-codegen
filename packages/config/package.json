@@ -10,6 +10,6 @@
   "license": "ISC",
   "dependencies": {
     "cosmiconfig": "^8.2.0",
-    "lilconfig": "^2.1.0"
+    "cosmiconfig-typescript-loader": "^4.3.0"
   }
 }

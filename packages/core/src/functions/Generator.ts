@@ -9,7 +9,7 @@ type Field = Response[number]['fieldDefinitions'][number];
 
 /**
  * Parse a metaobjects to TS types
- * @param response Metaobjects response
+ * @param response Metaobjects definitions response
  */
 export class Generator {
   response: Response;

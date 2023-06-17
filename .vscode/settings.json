@@ -1,0 +1,23 @@
+{
+  "cSpell.words": ["Backoff"],
+  "workbench.colorCustomizations": {
+    "activityBar.activeBackground": "#1f01fe",
+    "activityBar.background": "#1f01fe",
+    "activityBar.foreground": "#e7e7e7",
+    "activityBar.inactiveForeground": "#e7e7e799",
+    "activityBarBadge.background": "#3f0800",
+    "activityBarBadge.foreground": "#e7e7e7",
+    "commandCenter.border": "#e7e7e799",
+    "sash.hoverBorder": "#1f01fe",
+    "statusBar.background": "#1901cb",
+    "statusBar.foreground": "#e7e7e7",
+    "statusBarItem.hoverBackground": "#1f01fe",
+    "statusBarItem.remoteBackground": "#1901cb",
+    "statusBarItem.remoteForeground": "#e7e7e7",
+    "titleBar.activeBackground": "#1901cb",
+    "titleBar.activeForeground": "#e7e7e7",
+    "titleBar.inactiveBackground": "#1901cb99",
+    "titleBar.inactiveForeground": "#e7e7e799"
+  },
+  "peacock.color": "#1901cb"
+}

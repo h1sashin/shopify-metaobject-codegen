@@ -17,3 +17,5 @@ yargs(hideBin(process.argv))
   .strictCommands()
   .demandCommand()
   .parse();
+
+export { GenerateDefinitions, InitConfig };
