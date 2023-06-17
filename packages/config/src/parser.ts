@@ -1,4 +1,3 @@
-import { log } from '@shopify-metaobject-codegen/core';
 import { GeneratorConfig } from './types';
 
 const configFields: Record<keyof GeneratorConfig, { required?: boolean; regex?: RegExp; defaultValue?: string }> = {
@@ -37,7 +36,7 @@ export const parser = (config: Record<string, string>): GeneratorConfig => {
   const missingKeys = requiredKeys.filter((key) => !(key in parsedConfig));
   if (missingKeys.length) errors.push(`Config fields ${missingKeys.join(', ')} are required`);
   if (errors.length) {
-    log('error', errors.join('\n'));
+    console.log('error', errors.join('\n'));
     process.exit(1);
   }
   return parsedConfig;
