@@ -2,9 +2,14 @@
   "name": "@shopify-metaobject-codegen/monorepo",
   "version": "0.1.0",
   "description": "",
+  "main": "packages/cli/dist/index.js",
+  "bin": {
+    "smc": "./packages/cli/dist/index.js"
+  },
   "scripts": {
     "build": "npm run build -ws --if-present",
-    "codegen": "npm run codegen -w @shopify-metaobject-codegen/graphql"
+    "codegen": "npm run codegen -w @shopify-metaobject-codegen/graphql",
+    "simulator": "ts-node simulator.ts"
   },
   "author": "",
   "license": "ISC",
@@ -14,11 +19,9 @@
     "packages/types",
     "packages/core",
     "packages/cli",
-    "packages/bento",
-    "packages/assignments"
+    "packages/bento"
   ],
   "dependencies": {
-    "chalk": "4.1.2",
     "dotenv": "^16.1.4"
   },
   "devDependencies": {

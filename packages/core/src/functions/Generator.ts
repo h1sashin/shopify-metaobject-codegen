@@ -12,6 +12,7 @@ type Field = Response[number]['fieldDefinitions'][number];
  * @param response Metaobjects definitions response
  */
 export class Generator {
+  /** Parsed response */
   response: Response;
   constructor(response: Response) {
     this.response = response;
@@ -65,12 +66,12 @@ export class Generator {
   }
 
   private getMetaobjectsList(): string {
-    return `export interface Metaobjects {\n${this.response
+    return `export type Metaobjects = {\n${this.response
       .map(({ type }) => `\t${this.parseName(type)}: ${this.parseName(type, 'key')} | null;`)
       .join('\n')}\n}`;
   }
 
-  /** Get the types for metaobjects */
+  /** Parse response into types */
   public parse(): string {
     const defaults = Object.values(defaultTypes);
     const metaobjects = this.response.map((metaobject) => this.parseMetaobject(metaobject)).join('\n\n');
