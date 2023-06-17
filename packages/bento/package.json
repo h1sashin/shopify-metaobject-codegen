@@ -1,15 +1,15 @@
 {
   "name": "@shopify-metaobject-codegen/bento",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
     "build": "tsc --p tsconfig.json"
   },
   "dependencies": {
-    "@shopify-metaobject-codegen/config": "^1.0.0",
-    "@shopify-metaobject-codegen/core": "^1.0.0",
-    "@shopify-metaobject-codegen/graphql": "^1.0.0"
+    "@shopify-metaobject-codegen/config": "^0.0.1",
+    "@shopify-metaobject-codegen/core": "^0.0.1",
+    "@shopify-metaobject-codegen/graphql": "^0.0.1"
   },
   "keywords": [],
   "author": "",

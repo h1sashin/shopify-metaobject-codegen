@@ -1,6 +1,6 @@
 {
   "name": "@shopify-metaobject-codegen/core",
-  "version": "1.0.0",
+  "version": "0.0.1",
   "description": "",
   "main": "dist/index.js",
   "scripts": {
@@ -8,8 +8,8 @@
   },
   "dependencies": {
     "chalk": "4.1.2",
-    "@shopify-metaobject-codegen/types": "^1.0.0",
-    "@shopify-metaobject-codegen/graphql": "^1.0.0"
+    "@shopify-metaobject-codegen/types": "^0.0.1",
+    "@shopify-metaobject-codegen/graphql": "^0.0.1"
   },
   "keywords": [],
   "author": "",
