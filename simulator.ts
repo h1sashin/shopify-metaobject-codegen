@@ -6,7 +6,7 @@ type WantedMetaobjects = 'schedule' | 'home_page_section_2';
 
 const metaobjectTypes: Record<WantedMetaobjects, boolean> = {
   schedule: true,
-  home_page_section_2: false,
+  home_page_section_2: true,
 };
 
 const getValidTypes = (): WantedMetaobjects[] => {
@@ -35,7 +35,7 @@ const simulator = async () => {
     types,
   });
 
-  console.log(metaobjects);
+  console.dir(metaobjects.home_page_section_2, { depth: null });
 };
 
 simulator();

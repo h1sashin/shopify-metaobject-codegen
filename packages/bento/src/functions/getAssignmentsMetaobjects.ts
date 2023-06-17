@@ -26,10 +26,9 @@ export async function getAssignmentsMetaobjects<T, K extends keyof T>({
       return metaobject;
     }),
   );
-  return metaobjects.reduce((acc, curr, index) => {
-    return {
-      ...acc,
-      [types[index]]: curr,
-    };
-  }, {} as T);
+  return metaobjects.reduce((acc, metaobject, index) => {
+    const type = types[index];
+    acc[type] = metaobject as T[K];
+    return acc;
+  }, {} as Record<K, T[K]>);
 }
