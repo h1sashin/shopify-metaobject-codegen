@@ -21,10 +21,10 @@
   "author": "",
   "license": "ISC",
   "workspaces": [
+    "packages/core",
     "packages/config",
     "packages/graphql",
     "packages/types",
-    "packages/core",
     "packages/cli",
     "packages/bento"
   ],
