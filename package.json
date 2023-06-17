@@ -11,6 +11,13 @@
     "codegen": "npm run codegen -w @shopify-metaobject-codegen/graphql",
     "simulator": "ts-node simulator.ts"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/h1sashin/shopify-metaobject-codegen.git"
+  },
+  "bugs": {
+    "url": "https://github.com/h1sashin/shopify-metaobject-codegen/issues"
+  },
   "author": "",
   "license": "ISC",
   "workspaces": [
