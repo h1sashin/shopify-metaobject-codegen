@@ -17,18 +17,18 @@ jobs:
       - run: npm publish -w config --access public --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      - run: npm publish -w graphql --access public --tag latest
+      - run: npm publish -w packages/graphql --access public --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      - run: npm publish -w types --access public --tag latest
+      - run: npm publish -w packages/types --access public --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      - run: npm publish -w core --access public --tag latest
+      - run: npm publish -w packages/core --access public --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      - run: npm publish -w cli --access public --tag latest
+      - run: npm publish -w packages/cli --access public --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
-      - run: npm publish -w bento --access public --tag latest
+      - run: npm publish -w packages/bento --access public --tag latest
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_AUTH_TOKEN }}
