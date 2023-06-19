@@ -1,6 +1,6 @@
-export type FieldTypes = Record<MetaObjectField, string>;
+export type FieldTypes = Record<MetaobjectField, string>;
 
-export type MetaObjectField =
+export type MetaobjectField =
   | 'boolean'
   | 'color'
   | 'date'

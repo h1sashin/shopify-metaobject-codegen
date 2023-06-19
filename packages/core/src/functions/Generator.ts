@@ -1,8 +1,8 @@
-import { MetaObjectField } from '@shopify-metaobject-codegen/types';
+import { MetaobjectField } from '@shopify-metaobject-codegen/types';
 import { defaultTypes, fieldTypes } from '../data/constants';
 import { GetDefinitionsQuery } from '@shopify-metaobject-codegen/graphql';
 
-type FieldType = MetaObjectField | `list.${MetaObjectField}`;
+type FieldType = MetaobjectField | `list.${MetaobjectField}`;
 
 type Response = GetDefinitionsQuery['metaobjectDefinitions']['nodes'];
 type Field = Response[number]['fieldDefinitions'][number];
@@ -36,7 +36,7 @@ export class Generator {
   private getType(fieldType: FieldType, validations?: Field['validations']): string {
     let [type, array] = ['null', ''];
     const isList = fieldType.startsWith('list.');
-    const singleType = fieldType.replace('list.', '') as MetaObjectField;
+    const singleType = fieldType.replace('list.', '') as MetaobjectField;
     array = isList ? '[]' : '';
     if (['metaobject_reference', 'mixed_reference'].includes(singleType)) {
       if (!validations) return 'null';

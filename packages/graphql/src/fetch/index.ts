@@ -19,10 +19,11 @@ const withBackoff = (reqInfo: RequestInfo | URL, reqInit: RequestInit | undefine
 };
 
 export const generateSdk = () => {
-  const { ADMIN_API_KEY, API_VERSION, SHOP_NAME } = getConfig();
+  const config = getConfig();
+  const { ADMIN_API_KEY, API_VERSION, SHOP_NAME } = config || {};
   const client = new GraphQLClient(`https://${SHOP_NAME}/admin/api/${API_VERSION}/graphql.json`, {
     headers: {
-      'X-Shopify-Access-Token': ADMIN_API_KEY,
+      'X-Shopify-Access-Token': ADMIN_API_KEY || '',
     },
     fetch: withBackoff,
   });

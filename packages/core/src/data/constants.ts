@@ -19,8 +19,8 @@ export const fieldTypes: FieldTypes = {
   weight: 'ValueWithUnit',
   collection_reference: 'Collection',
   file_reference: 'Media',
-  metaobject_reference: 'MetaObject',
-  mixed_reference: 'MetaObject | Collection | Media | Page | Product | Variant',
+  metaobject_reference: 'Metaobject',
+  mixed_reference: 'Metaobject | Collection | Media | Page | Product | Variant',
   page_reference: 'Page',
   product_reference: 'Product',
   variant_reference: 'Variant',
@@ -32,7 +32,7 @@ export const references = {
   Variant: `export type Variant = { id: string; };`,
   File: `export type Media = { id: string; url: string; };`,
   Page: `export type Page = { id: string; };`,
-  MetaObject: `export type MetaObject = { id: string; };`,
+  Metaobject: `export type Metaobject = { id: string; };`,
 };
 
 export const defaultTypes = {

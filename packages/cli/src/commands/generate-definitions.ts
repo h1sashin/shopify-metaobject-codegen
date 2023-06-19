@@ -7,7 +7,7 @@ import path from 'path';
 export const fn = async () => {
   try {
     const sdk = await generateSdk();
-    const { file } = getConfig();
+    const config = getConfig();
     log('info', 'Getting definitions');
     const {
       metaobjectDefinitions: { nodes },
@@ -15,7 +15,7 @@ export const fn = async () => {
     log('info', 'Generating definitions');
     const generator = new Generator(nodes);
     const parsed = generator.parse();
-    fs.writeFileSync(path.resolve(process.cwd(), file), parsed);
+    fs.writeFileSync(path.resolve(process.cwd(), config?.file ?? '.generatorrc'), parsed);
     log('success', 'Definitions generated');
   } catch (e) {
     if (e instanceof Error) log('error', e.message);

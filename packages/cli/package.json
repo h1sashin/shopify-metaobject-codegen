@@ -8,7 +8,9 @@
     "smc": "./dist/index.js"
   },
   "scripts": {
-    "build": "tsc --p tsconfig.json"
+    "build": "tsc --p tsconfig.json",
+    "watch": "tsc --watch --p tsconfig.json",
+    "postbuild": "cp -r src/configs dist"
   },
   "keywords": [],
   "author": "",

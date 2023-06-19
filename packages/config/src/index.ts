@@ -1,7 +1,10 @@
+import { log } from '@shopify-metaobject-codegen/core';
 import { parser } from './parser';
 import { RequiredGeneratorConfig } from './types';
 import { cosmiconfigSync } from 'cosmiconfig';
 import { TypeScriptLoader } from 'cosmiconfig-typescript-loader';
+import { generateSearchPlaces } from './utils/generateSearchPlaces';
+import { customLoader } from './utils/customLoader';
 
 /**
  * @description
@@ -9,17 +12,30 @@ import { TypeScriptLoader } from 'cosmiconfig-typescript-loader';
  */
 export const getConfig = () => {
   try {
-    cosmiconfigSync('generator', {});
-    const result = cosmiconfigSync('generator', {
-      searchPlaces: [`generator.config.ts`],
+    const moduleName = 'generator';
+    const configFilePath = process.cwd();
+    const packageProp = moduleName;
+    const result = cosmiconfigSync(moduleName, {
+      packageProp,
       loaders: {
-        '.ts': TypeScriptLoader(),
+        '.ts': customLoader('ts'),
+        '.yml': customLoader('yaml'),
+        '.yaml': customLoader('yaml'),
+        '.json': customLoader('json'),
+        '.js': customLoader('js'),
+        '.cjs': customLoader('js'),
+        '.mjs': customLoader('js'),
+        '.cts': customLoader('ts'),
+        '.mts': customLoader('ts'),
+        noExt: customLoader('json'),
       },
-    }).search();
+      searchPlaces: generateSearchPlaces(moduleName),
+    }).search(configFilePath);
     if (!result?.filepath) throw new Error('Config file not found, isEmpty');
-    return parser(result.config) as RequiredGeneratorConfig;
+    return <RequiredGeneratorConfig>parser(result.config);
   } catch (e) {
-    throw e;
+    if (e instanceof Error) log('error', e.message);
+    log('error', 'Unknown error occured');
   }
 };
 

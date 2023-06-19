@@ -1,9 +1,6 @@
 {
   "include": ["src"],
   "exclude": ["node_modules", "**/*.spec.ts", "dist"],
-  "ts-node": {
-    "transpileOnly": true
-  },
   "compilerOptions": {
     "outDir": "dist",
     "target": "ESNext",
