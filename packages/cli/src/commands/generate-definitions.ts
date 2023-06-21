@@ -6,7 +6,7 @@ import path from 'path';
 
 export const fn = async () => {
   try {
-    const sdk = await generateSdk();
+    const sdk = generateSdk();
     const config = getConfig();
     log('info', 'Getting definitions');
     const {

@@ -2,12 +2,11 @@ import { getAssignmentsMetaobjects, getMetaobjects } from './packages/bento/dist
 import { Metaobjects } from './metaobject-definitions';
 import * as fs from 'fs';
 
-type WantedMetaobjects = 'homepage_hero' | 'test';
+type WantedMetaobjects = 'home_page_section_2' | 'home_page_section_3';
 
-const metaobjectTypes: Partial<Record<keyof Metaobjects, boolean>> = {
-  homepage_hero: true,
-  lists: true,
-  test: true,
+const metaobjectTypes: Record<WantedMetaobjects, boolean> = {
+  home_page_section_2: true,
+  home_page_section_3: true,
 };
 
 const getValidTypes = (): WantedMetaobjects[] => {
@@ -28,6 +27,7 @@ const getAssignment = (featureId: string) => {
 const simulator = async () => {
   const types = getValidTypes();
   const fetchedMetaobjects = await getMetaobjects(types);
+
   fs.writeFileSync('./metaobjects.json', JSON.stringify(fetchedMetaobjects, null, 2));
 
   const metaobjects = await getAssignmentsMetaobjects<Metaobjects, WantedMetaobjects>({
@@ -36,7 +36,7 @@ const simulator = async () => {
     types,
   });
 
-  console.dir(metaobjects, { depth: null });
+  console.dir(metaobjects.home_page_section_3, { depth: null });
 };
 
 simulator();
