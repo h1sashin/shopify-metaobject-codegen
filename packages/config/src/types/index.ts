@@ -3,6 +3,9 @@ export interface GeneratorConfig {
   API_VERSION: string;
   ADMIN_API_KEY: string;
   file?: string;
+  typePrefix?: string;
+  typeSuffix?: string;
+  maybeValue?: string;
 }
 
 type Required<T> = {

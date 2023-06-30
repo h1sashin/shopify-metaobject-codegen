@@ -1,6 +1,6 @@
-import { FieldTypes } from '@shopify-metaobject-codegen/types';
+import { MetaobjectField } from '@shopify-metaobject-codegen/types';
 
-export const fieldTypes: FieldTypes = {
+export const fieldTypes: Record<MetaobjectField, string> = {
   boolean: 'boolean',
   color: 'string',
   date: 'Date',
@@ -30,12 +30,13 @@ export const references = {
   Product: `export type Product = { id: string; handle: string; };`,
   Collection: `export type Collection = { id: string; handle: string; };`,
   Variant: `export type Variant = { id: string; };`,
-  File: `export type Media = { id: string; url: string; };`,
+  File: `export type Media = { type: MediaType, src: string, alt?: string };`,
   Page: `export type Page = { id: string; };`,
   Metaobject: `export type Metaobject = { id: string; };`,
 };
 
 export const defaultTypes = {
+  MediaType: `export type MediaType = 'GenericFile' | 'MediaImage' | 'Video'`,
   Dimension: `export type Dimension = { value: number; unit: string };`,
   Money: `export type Money = { amount: number; currency: string };`,
   Rating: `export type Rating = { value: number; scale_min: number; scale_max: number };`,

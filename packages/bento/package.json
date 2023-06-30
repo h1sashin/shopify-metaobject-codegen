@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "tsc --p tsconfig.json"
+    "build": "tsc --p tsconfig.json",
+    "watch": "tsc --watch--p tsconfig.json"
   },
   "dependencies": {
     "@outsmartly/bento": "^0.0.22-rc.7",

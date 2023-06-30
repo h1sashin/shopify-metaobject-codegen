@@ -12,3 +12,4 @@ metaobject-definitions.ts
 metaobjects.json
 .vscode
 .npmrc
+simulator.ts

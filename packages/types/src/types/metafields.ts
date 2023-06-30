@@ -1,5 +1,3 @@
-export type FieldTypes = Record<MetaobjectField, string>;
-
 export type MetaobjectField =
   | 'boolean'
   | 'color'
@@ -24,3 +22,53 @@ export type MetaobjectField =
   | 'page_reference'
   | 'product_reference'
   | 'variant_reference';
+
+export type ValueWithUnit = {
+  value: number;
+  unit: string;
+};
+
+export type FileTypes = 'GenericFile' | 'MediaImage' | 'Video';
+
+export type Rating = {
+  value: number;
+  scale_min: number;
+  scale_max: number;
+};
+
+export type Money = {
+  amount: number;
+  currency: string;
+};
+
+export type File = {
+  type: FileTypes;
+  url: string;
+  alt?: string;
+};
+
+export type MetaobjectFieldType = {
+  boolean: boolean;
+  color: string;
+  date: Date;
+  date_time: Date;
+  dimension: ValueWithUnit;
+  json: Record<string, unknown>;
+  money: Money;
+  multi_line_text_field: string;
+  number_decimal: number;
+  number_integer: number;
+  rating: Rating;
+  rich_text_field: string;
+  single_line_text_field: string;
+  url: string;
+  volume: ValueWithUnit;
+  weight: ValueWithUnit;
+  collection_reference: string;
+  file_reference: File;
+  metaobject_reference: string;
+  mixed_reference: string;
+  page_reference: string;
+  product_reference: string;
+  variant_reference: string;
+};

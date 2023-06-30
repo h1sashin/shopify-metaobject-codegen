@@ -17,6 +17,15 @@ const configFields: Record<keyof GeneratorConfig, { required?: boolean; regex?: 
   file: {
     defaultValue: 'metaobject-definitions.ts',
   },
+  typePrefix: {
+    regex: /^[a-zA-Z]+$/g,
+  },
+  typeSuffix: {
+    regex: /^[a-zA-Z]+$/g,
+  },
+  maybeValue: {
+    defaultValue: 'T | null',
+  },
 };
 
 export const parser = (config: Record<string, string>): GeneratorConfig => {

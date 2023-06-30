@@ -25,7 +25,7 @@ export const generateSdk = () => {
     headers: {
       'X-Shopify-Access-Token': ADMIN_API_KEY || '',
     },
-    fetch: withBackoff,
+    // fetch: withBackoff,
   });
   const sdk = getSdk(client);
   return sdk;
