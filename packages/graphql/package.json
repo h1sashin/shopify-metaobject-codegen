@@ -1,0 +1,26 @@
+{
+  "name": "@shopify-metaobject-codegen/graphql",
+  "version": "0.0.6",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --p tsconfig.json",
+    "watch": "tsc --watch--p tsconfig.json",
+    "codegen": "graphql-codegen --config graphql.config.ts",
+    "codegen:watch": "graphql-codegen --config graphql.config.ts --watch"
+  },
+  "dependencies": {
+    "@shopify-metaobject-codegen/core": "^0.0.6",
+    "@shopify-metaobject-codegen/config": "^0.0.6",
+    "graphql-request": "^6.1.0"
+  },
+  "devDependencies": {
+    "@graphql-codegen/cli": "^4.0.1",
+    "@graphql-codegen/typescript": "^4.0.0",
+    "@graphql-codegen/typescript-graphql-request": "^5.0.0",
+    "@graphql-codegen/typescript-operations": "^4.0.0"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

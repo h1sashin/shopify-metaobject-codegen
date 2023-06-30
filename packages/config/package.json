@@ -1,0 +1,23 @@
+{
+  "name": "@shopify-metaobject-codegen/config",
+  "version": "0.0.6",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --p tsconfig.json",
+    "watch": "tsc --watch --p tsconfig.json"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@shopify-metaobject-codegen/core": "^0.0.6",
+    "cosmiconfig": "^8.2.0",
+    "cosmiconfig-typescript-loader": "^4.3.0",
+    "jiti": "^1.18.2",
+    "string-env-interpolation": "^1.0.1",
+    "yaml": "^2.3.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.3.1"
+  }
+}

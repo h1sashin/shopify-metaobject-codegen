@@ -1,0 +1,14 @@
+{
+  "include": ["src"],
+  "exclude": ["dist"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ESNext",
+    "lib": ["es2021"],
+    "module": "commonjs",
+    "esModuleInterop": true,
+    "strict": true,
+    "rootDir": "src",
+    "declaration": true
+  }
+}

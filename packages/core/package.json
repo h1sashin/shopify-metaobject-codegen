@@ -1,0 +1,19 @@
+{
+  "name": "@shopify-metaobject-codegen/core",
+  "version": "0.0.6",
+  "description": "",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "tsc --p tsconfig.json",
+    "watch": "tsc --watch--p tsconfig.json"
+  },
+  "dependencies": {
+    "@shopify-metaobject-codegen/config": "^0.0.6",
+    "@shopify-metaobject-codegen/graphql": "^0.0.6",
+    "@shopify-metaobject-codegen/types": "^0.0.6",
+    "chalk": "4.1.2"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

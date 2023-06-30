@@ -4,3 +4,12 @@ dist
 src/local-cache.json
 src/response.json
 src/generated.ts
+
+# FROM SIMULATOR
+.generator*
+generator.*
+metaobject-definitions.ts
+metaobjects.json
+.vscode
+.npmrc
+simulator.ts

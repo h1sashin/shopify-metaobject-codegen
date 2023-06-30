@@ -1,0 +1,13 @@
+{
+  "include": ["src"],
+  "exclude": ["node_modules", "**/*.spec.ts", "dist"],
+  "compilerOptions": {
+    "outDir": "dist",
+    "target": "ESNext",
+    "module": "CommonJS",
+    "esModuleInterop": true,
+    "strict": true,
+    "rootDir": "src",
+    "declaration": true
+  }
+}

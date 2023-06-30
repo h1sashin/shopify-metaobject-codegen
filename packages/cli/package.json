@@ -1,0 +1,26 @@
+{
+  "name": "@shopify-metaobject-codegen/cli",
+  "version": "0.0.6",
+  "description": "",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bin": {
+    "smc": "./dist/index.js"
+  },
+  "scripts": {
+    "build": "tsc --p tsconfig.json",
+    "watch": "tsc --watch --p tsconfig.json",
+    "postbuild": "cp -r src/configs dist"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@shopify-metaobject-codegen/config": "^0.0.6",
+    "@shopify-metaobject-codegen/core": "^0.0.6",
+    "yargs": "^17.7.2"
+  },
+  "devDependencies": {
+    "@types/yargs": "^17.0.24"
+  }
+}
