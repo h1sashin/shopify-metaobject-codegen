@@ -1,8 +1,3 @@
-type GetFromCache = (
-  path: [string, string, string] | [string, string] | [string],
-) => Promise<[string, string, string] | [string, string] | [string]>;
-type GetAssignment = (featureId: string) => string | null;
-
 /**
  * @param area - area of metaobjects to get
  * @param getAssignment - function that returns assignment for a given featureID
@@ -14,10 +9,10 @@ export async function getAssignmentsMetaobjects<T, K extends keyof T>({
   getFromCache,
   types,
 }: {
-  getAssignment: GetAssignment;
-  getFromCache: GetFromCache;
+  getAssignment: any;
+  getFromCache: any;
   types: K[];
-}) {
+}): Promise<MetaobjectRecord<T, K>> {
   const metaobjects = await Promise.all(
     types.map(async (type) => {
       const assignment = getAssignment(type as string);
@@ -26,9 +21,14 @@ export async function getAssignmentsMetaobjects<T, K extends keyof T>({
       return metaobject;
     }),
   );
+
   return metaobjects.reduce((acc, metaobject, index) => {
     const type = types[index];
     acc[type] = metaobject as T[K];
     return acc;
-  }, {} as Record<K, T[K]>);
+  }, {} as MetaobjectRecord<T, K>);
 }
+
+export type MetaobjectRecord<T, K extends keyof T> = {
+  [P in K]: T[P] | null;
+};
